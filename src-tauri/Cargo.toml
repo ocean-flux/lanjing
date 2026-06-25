@@ -1,0 +1,53 @@
+[workspace]
+resolver = "2"
+
+[lints]
+workspace = true
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "CC-BY-NC-SA-4.0"
+repository = "https://github.com/ocean-flux/lanjing"
+rust-version = "1.96"
+
+[workspace.lints]
+clippy.all = "deny"
+clippy.pedantic = "deny"
+
+[workspace.dependencies]
+tauri = "2.11.3"
+tauri-build = { version = "2.6.3", features = [] }
+tauri-plugin-dialog = "2.7.1"
+tauri-plugin-notification = "2.2.1"
+tauri-plugin-os = "2.2.1"
+tauri-plugin-single-instance = "2.2.1"
+tauri-plugin-window-state = "2.2.1"
+
+[package]
+name = "lanjing"
+version.workspace = true
+description = "Lanjing — cross-platform media discovery and reading workbench"
+authors = ["Lanjing Contributors"]
+edition.workspace = true
+rust-version.workspace = true
+publish = false
+
+[lib]
+name = "lanjing_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { workspace = true }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { workspace = true }
+tauri-plugin-dialog = { workspace = true }
+tauri-plugin-notification = { workspace = true }
+tauri-plugin-opener = "2"
+tauri-plugin-os = { workspace = true }
+tauri-plugin-single-instance = { workspace = true }
+tauri-plugin-store = "2"
+tauri-plugin-window-state = { workspace = true }
